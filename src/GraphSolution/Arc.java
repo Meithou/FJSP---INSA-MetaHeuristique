@@ -1,11 +1,9 @@
 package GraphSolution;
 
 public class Arc {
-	private int cost;
 	private Node next;
 	private char restraintype; // Timebound or Taskbound
-	public Arc(int cost,Node next,char type) {
-		this.cost = cost;
+	public Arc(Node next,char type) {
 		this.next=next;
 		this.restraintype = type;
 	}
@@ -13,8 +11,5 @@ public class Arc {
 		return next;
 	}
 
-	public int getCost() {
-		return cost;
-	}
 
 }
