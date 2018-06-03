@@ -26,6 +26,10 @@ public class Graph {
         nodeList.add(node);
     }
 
+    public ArrayList<Node> getNodeList() {
+        return nodeList;
+    }
+
     private Path evaluatePath(Node current, Node end) { // add marking array to handle loops
         Path currentPath;
         Path chosenPath = null;
@@ -34,7 +38,7 @@ public class Graph {
             chosenPath.addNode(current);
             return chosenPath;
         }
-            for (Arc arc : current.getSucc()) {
+            for (Arc arc : current.getSuccList()) {
             currentPath = evaluatePath(arc.getNext(), end);
             chosenPath = (chosenPath == null ? currentPath : (chosenPath.getCost() > currentPath.getCost()) ? chosenPath : currentPath); // Choose between the different successors
         }

@@ -1,11 +1,20 @@
-package GraphSolution;
+package NeighbourGraphs;
 
-import java.lang.reflect.Array;
+import GraphSolution.Node;
+
 import java.util.ArrayList;
 
 public class LR {
     private ArrayList<Node> L;
     private ArrayList<Node> R;
+
+    public ArrayList<Node> getL() {
+        return L;
+    }
+
+    public ArrayList<Node> getR() {
+        return R;
+    }
 
     public LR (){
         L = new ArrayList<>();
