@@ -33,7 +33,7 @@ public class Node {
         PredList = new ArrayList<Arc>();
     }
     public String getID(){
-        return "ID"+this.machine+this.job+this.task;
+        return "ID"+this.job+this.task; // Should find another way
     }
     public Node(Node n){
         this.machine = n.machine;
@@ -50,8 +50,10 @@ public class Node {
     }
     public void remove_from_list(ArrayList<Arc> l,Node n){
         for ( Arc a : l)
-            if(a.getNext().equals(n))
+            if(a.getNext().equals(n)) {
                 l.remove(a);
+                break;
+            }
     }
     public void delArc(Node next){
         remove_from_list(SuccList,next); // Deleting from succlist

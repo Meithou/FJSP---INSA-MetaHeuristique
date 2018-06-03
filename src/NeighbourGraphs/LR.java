@@ -21,10 +21,12 @@ public class LR {
         R = new ArrayList<>();
     }
     public void add_L(Node n){
-        this.L.add(n);
+        if(!L.contains(n))
+            this.L.add(n);
     }
 
     public void add_R(Node n){
-        this.R.add(n);
+        if(!R.contains(n))
+            this.R.add(n);
     }
 }

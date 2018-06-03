@@ -1,6 +1,9 @@
 package Algorithm;
 
 import GraphSolution.*;
+import NeighbourGraphs.NeighbourGraph;
+
+import java.util.ArrayList;
 
 public class Main {
 	public static void main(String[] args) {
@@ -69,6 +72,16 @@ public class Main {
 		g.addNode(n4_4);
 		
 		sol = g.evaluateCost();
+		NeighbourGraph ng = new NeighbourGraph(g);
 		System.out.printf("Cout de la solution:  %d \n",sol);
+		sol = ng.evaluateCost();
+		System.out.printf("Cout de la solution:  %d \n",sol);
+        ArrayList<Integer> machines = new ArrayList<Integer>();
+        machines.add(new Integer(1));
+        machines.add(new Integer(2));
+        machines.add(new Integer(3));
+        machines.add(new Integer(4));
+        NeighbourAlgorithms.neighbourf1(ng,machines);
+        System.out.printf("job Done");
 	}
 }

@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Graph {
-    ArrayList<Node> nodeList;
-    Path criticalPath;
+    protected ArrayList<Node> nodeList;
+    private Path criticalPath;
 
     public Graph() {
         Node start = new Node(0, 0, -1, 0);
-        Node end = new Node(0, 0, -2, 0);
+        Node end = new Node(-1, -1, -2, 0);
         nodeList = new ArrayList<>();
         nodeList.add(start); // start is 0
         nodeList.add(end); // end is 1
@@ -30,7 +30,7 @@ public class Graph {
         return nodeList;
     }
 
-    private Path evaluatePath(Node current, Node end) { // add marking array to handle loops
+    protected Path evaluatePath(Node current, Node end) { // add marking array to handle loops
         Path currentPath;
         Path chosenPath = null;
         if (current.equals(end)) {
@@ -40,9 +40,12 @@ public class Graph {
         }
             for (Arc arc : current.getSuccList()) {
             currentPath = evaluatePath(arc.getNext(), end);
+            if(currentPath==null)
+                continue; // Path not found
             chosenPath = (chosenPath == null ? currentPath : (chosenPath.getCost() > currentPath.getCost()) ? chosenPath : currentPath); // Choose between the different successors
         }
-        chosenPath.addNode(current);
+        if(chosenPath!=null)
+            chosenPath.addNode(current);
         return chosenPath;
     }
 
