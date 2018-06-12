@@ -2,6 +2,8 @@ package Algorithm;
 
 import GraphSolution.*;
 import NeighbourGraphs.NeighbourGraph;
+import ProblemRepresentation.Problem;
+import ProblemRepresentation.Task;
 
 import java.util.ArrayList;
 
@@ -81,7 +83,12 @@ public class Main {
         machines.add(new Integer(2));
         machines.add(new Integer(3));
         machines.add(new Integer(4));
-        NeighbourAlgorithms.neighbourf1(ng,machines);
+		Problem pb = new Problem();
+		pb.addMachine(4);
+		pb.addJob(4);
+		Task tk = new Task(4);
+		pb.addTask(1,tk);
+        NeighbourAlgorithms.neighbourf1(ng,pb);
         System.out.printf("job Done");
 	}
 }

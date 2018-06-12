@@ -101,7 +101,7 @@ public class NeighbourGraph extends Graph {
             if(!lr.getL().contains(current)) { // Move after L
                 break;
             }
-            for(Arc a:current.getSuccList()) { // Need to add case at the end of the list
+            for(Arc a:current.getSuccList()) {
                 if (a.getType()=='M') {
                     current = a.getNext();
                     moving = true;

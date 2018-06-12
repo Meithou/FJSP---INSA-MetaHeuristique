@@ -30,7 +30,7 @@ public class Graph {
         return nodeList;
     }
 
-    protected Path evaluatePath(Node current, Node end) { // add marking array to handle loops
+    public Path evaluatePath(Node current, Node end) { // add marking array to handle loops
         Path currentPath;
         Path chosenPath = null;
         if (current.equals(end)) {

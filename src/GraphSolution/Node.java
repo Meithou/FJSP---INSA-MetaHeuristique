@@ -3,8 +3,8 @@ import java.util.ArrayList;
 
 public class Node {
     private int machine;
-    private int job;
-    private int task;
+    public int job;
+    public int task;
     private int time_start;
     private int cost;
     private ArrayList<Arc> SuccList;
@@ -23,6 +23,7 @@ public class Node {
     public ArrayList<Arc> getPredList() {
         return PredList;
     }
+
 
     public Node(int job, int task, int machine, int cost) {
         this.machine = machine;
